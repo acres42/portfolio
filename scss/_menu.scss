@@ -38,10 +38,10 @@
 }
 
 .menu {
-  postion: fixed;
+  position: fixed;
   top: 0;
   width: 100%;
-  opacity: 0.75;
+  opacity: 0.9;
   visibility: hidden;
 
   &.show {
@@ -74,7 +74,7 @@
   }
 
   &-branding {
-    background: $primary-color;
+    background: $secondary-color;
     transform: translate3d(0, 100%, 0);
     @include easeOut;
 
@@ -87,7 +87,7 @@
       height: 250px;
       background: url(../img/headshot.jpg);
       border-radius: 50%;
-      border: solid 3px $secondary-color;
+      border: solid 3px #fff;
     }
   }
 
@@ -108,6 +108,7 @@
     display: inline-block;
     position: relative;
     font-size: 30px;
+    text-transform: uppercase;
     padding: 1rem 0;
     font-weight: 300;
     color: #fff;

@@ -22,10 +22,10 @@
       transform: rotate(-45deg) translate(7px, -6px); }
 
 .menu {
-  postion: fixed;
+  position: fixed;
   top: 0;
   width: 100%;
-  opacity: 0.75;
+  opacity: 0.9;
   visibility: hidden; }
   .menu.show {
     visibility: visible; }
@@ -48,7 +48,7 @@
     .menu-nav.show {
       transform: translate3d(0, 0, 0); }
   .menu-branding {
-    background: #79A888;
+    background: #eece1a;
     transform: translate3d(0, 100%, 0);
     transition: all 0.7s ease-out; }
     .menu-branding.show {
@@ -58,7 +58,7 @@
       height: 250px;
       background: url(../img/headshot.jpg);
       border-radius: 50%;
-      border: solid 3px #eece1a; }
+      border: solid 3px #fff; }
   .menu .nav-item {
     transform: translate3d(600px, 0, 0);
     transition: all 0.7s ease-out; }
@@ -70,6 +70,7 @@
     display: inline-block;
     position: relative;
     font-size: 30px;
+    text-transform: uppercase;
     padding: 1rem 0;
     font-weight: 300;
     color: #fff;
