@@ -1,8 +1,8 @@
-$primary-color: #79A888;
-$secondary-color: #eece1a;
+$primary-color: #808080;
+$secondary-color: #79A888;
 $show-home-image:true;
 $home-image: url(../img/pexels-photo-1657959.jpeg);
-$background-opacity: 0.7;
+$background-opacity: 0.6;
 
 
 @mixin easeOut {
@@ -30,26 +30,34 @@ $background-opacity: 0.7;
   }
 }
 
-@mixin mediaSm {
-  @media screen and (max-width: 500px) {
-    @content;
+@function set-text-color($color) {
+  @if (lightness($color) > 40){
+    @return #000;
+  } @else {
+    @return #fff;
   }
-}
+  }
 
-@mixin mediaMd {
-  @media screen and (max-width: 768px) {
-    @content;
+  @mixin mediaSm {
+    @media screen and (max-width: 500px) {
+      @content;
+    }
   }
-}
 
-@mixin mediaLg {
-  @media screen and (min-width: 769px) {
-    @content;
+  @mixin mediaMd {
+    @media screen and (max-width: 768px) {
+      @content;
+    }
   }
-}
 
-@mixin mediaXl {
-  @media screen and (min-width: 1171px) {
-    @content;
+  @mixin mediaLg {
+    @media screen and (min-width: 769px) {
+      @content;
+    }
   }
-}
+
+  @mixin mediaXl {
+    @media screen and (min-width: 1171px) {
+      @content;
+    }
+  }
