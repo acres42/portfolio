@@ -1,5 +1,6 @@
 @import 'config';
 @import 'menu';
+@import url('https://fonts.googleapis.com/css?family=Caveat&display=swap');
 
 * {
   box-sizing: border-box;
@@ -24,6 +25,7 @@ h3 {
 
   &.lg-heading {
     font-size: 6rem;
+    font-family: 'Caveat', cursive;
   }
 
   &.sm-heading {
