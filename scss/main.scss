@@ -31,7 +31,7 @@ h3 {
   &.sm-heading {
     margin-bottom: 2rem;
     padding: 0.2rem 1rem;
-    background: rgba(lighten($primary-color, 2), 0.6);
+    background: rgba(lighten($secondary-color, 2), 0.5);
   }
 }
 
@@ -109,13 +109,13 @@ main {
   }
 
   .job{
-    background: lighten($primary-color, 30);
+    background: lighten($primary-color, 10);
     padding: 1.5rem;
     border-bottom: $secondary-color .5rem solid;
   }
 }
 
-#main-footer{
+#main-footer {
   text-align: center;
   padding: 1rem;
   background: darken($primary-color, 10);
