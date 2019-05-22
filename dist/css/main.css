@@ -183,10 +183,28 @@ main {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 0.7rem; }
-  .projects img {
+  .projects .item .overlay {
+    position: relative; }
+    .projects .item .overlay:hover .title {
+      color: #fff;
+      display: block;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      transition: all 0.7s ease-out; }
+    .projects .item .overlay:hover img {
+      opacity: 0.5;
+      border-color: #79A888;
+      transition: all 0.7s ease-out; }
+  .projects .item .title {
+    display: none; }
+  .projects .item img {
     width: 100%;
-    border: 3px solid #fff; }
-    .projects img:hover {
+    border: 3px solid #fff;
+    position: relative; }
+    .projects .item img:hover {
       opacity: 0.5;
       border-color: #79A888;
       transition: all 0.7s ease-out; }
@@ -275,7 +293,12 @@ main {
     grid-template-columns: repeat(2, 1fr); } }
 
 @media screen and (max-width: 500px) {
-  main#home h1 {
-    margin-top: 10vh; }
+  .main {
+    padding: 2rem; }
+    .main #home h1 {
+      margin-top: 10vh; }
+  .lg-heading {
+    margin-top: 1rem;
+    font-size: 5rem; }
   .projects {
     grid-template-columns: 1fr; } }
