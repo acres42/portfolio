@@ -127,6 +127,7 @@ main {
 
       &:hover {
         .title {
+          text-align: center;
           color:set-text-color($primary-color);
           display: block;
           position: absolute;
@@ -156,7 +157,7 @@ main {
       position: relative;
 
       &:hover {
-        opacity: 0.5;
+        opacity: 0.1;
         border-color: $secondary-color;
         @include easeOut;
       }
