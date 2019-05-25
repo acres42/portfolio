@@ -181,7 +181,7 @@ main {
 
 .projects {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 3fr;
   grid-gap: 0.7rem; }
   .projects .item .overlay {
     position: relative; }
