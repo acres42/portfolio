@@ -1,5 +1,9 @@
-@import 'config';
-@import 'menu';
+@use 'config' as *;
+@use 'menu';
+@use 'mobile';
+@use "sass:color";
+
+
 @import url('https://fonts.googleapis.com/css?family=Caveat&display=swap');
 
 * {
@@ -31,7 +35,7 @@ h3 {
   &.sm-heading {
     margin-bottom: 2rem;
     padding: 0.2rem 1rem;
-    background: rgba(lighten($secondary-color, 2), 0.5);
+    background-color: rgba($secondary-color, 0.5);
   }
 }
 
@@ -62,7 +66,7 @@ main {
 
       &:hover {
         color: $secondary-color;
-        @include easeOut();
+        transition: all 0.3s ease-out;
       }
     }
   }
@@ -109,7 +113,7 @@ main {
   }
 
   .job{
-    background: lighten($primary-color, 10);
+    background: color.adjust($primary-color, $lightness: 10%);
     padding: 1.5rem;
     border-bottom: $secondary-color .5rem solid;
   }
@@ -134,13 +138,13 @@ main {
           top: 50%;
           transform: translate(-50%, -50%);
           z-index: 2;
-          @include easeOut;
+          transition: all 0.3s ease-out;
         }
 
         img {
           opacity: 0.5;
           border-color: $secondary-color;
-          @include easeOut;
+          transition: all 0.3s ease-out;
         }
       }
     }
@@ -158,12 +162,31 @@ main {
       &:hover {
         opacity: 0.1;
         border-color: $secondary-color;
-        @include easeOut;
+        transition: all 0.3s ease-out;
       }
     }
   }
 }
 
+.intro-text {
+  font-style: italic;
+  font-weight: 300;
+  font-size: 1rem;
+  opacity: 0.95;
+}
+
+.background-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('../img/road.jpg') no-repeat center center;
+  background-size: cover;
+  opacity: 0.5;
+  z-index: -1;
+  pointer-events: none; // prevents it from blocking clicks
+}
 
 .boxes {
   display: flex;
@@ -177,7 +200,7 @@ main {
     border: 3px #fff solid;
     padding: 1.5rem 2.5rem;
     margin-bottom: 3rem;
-    @include easeOut;
+    transition: all 0.3s ease-out;
 
     &:hover {
       padding: 0.5rem 1.5rem;
@@ -204,13 +227,13 @@ main {
 
 .btn-dark{
   @extend .btn;
-  background: darken($primary-color, 50);
+  background: color.adjust($primary-color, $lightness: -50%);
   color: #fff;
 }
 
 .btn-light{
  @extend .btn;
- background: lighten($primary-color, 50);
+ background: color.adjust($primary-color, $lightness: 50%);
  color: #333;
 }
 
@@ -218,9 +241,7 @@ main {
 #main-footer {
   text-align: center;
   padding: 1rem;
-  background: darken($primary-color, 10);
-  color: set-color-text($primary-color);
+  background: color.adjust($primary-color, $lightness: -10%);
+  color: if(color.channel($primary-color, "lightness", $space: hsl) > 50%, #000, #fff);
   height: 60px;
 }
-
-@import 'mobile';

@@ -1,3 +1,5 @@
+@use 'config' as *;
+@use "sass:color";
 // Menu Button
 .menu-btn {
   position: absolute;
@@ -5,14 +7,14 @@
   right: 35px;
   top: 35px;
   cursor: pointer;
-  @include easeOut;
+      transition: all 0.3s ease-out;
 
   .btn-line {
     height: 3px;
     width: 28px;
     margin: 0 0 5px 0;
-    background: set-text-color($primary-color);
-    @include easeOut;
+    background: if(color.channel($primary-color, "lightness", $space: hsl) > 50%, #000, #fff);
+    transition: all 0.3s ease-out;
   }
 
   //Rotate into x with menu lines
@@ -63,10 +65,10 @@
   &-nav {
     margin: 0;
     padding: 0;
-    background: darken($primary-color, 5);
+    background: color.adjust($primary-color, $lightness: -5%);
     list-style: none;
     transform: translate3d(0, -100%, 0);
-    @include easeOut;
+        transition: all 0.3s ease-out;
 
     &.show {
       transform: translate3d(0, 0, 0);
@@ -76,7 +78,7 @@
   &-branding {
     background: $secondary-color;
     transform: translate3d(0, 100%, 0);
-    @include easeOut;
+        transition: all 0.3s ease-out;
 
     &.show {
       transform: translate3d(0, 0, 0);
@@ -85,7 +87,7 @@
     .portrait {
       width: 250px;
       height: 250px;
-      background: url(../img/headshot.jpg);
+      background: url(../img/headshot_sm.jpg);
       border-radius: 50%;
       border: solid 3px set-text-color($primary-color);
       ;
@@ -94,7 +96,7 @@
 
   .nav-item {
     transform: translate3d(600px, 0, 0);
-    @include easeOut;
+        transition: all 0.3s ease-out;
 
     &.show {
       transform: translate3d(0, 0, 0);
@@ -113,7 +115,7 @@
       font-weight: 300;
       color: set-text-color($primary-color);
       text-decoration: none;
-      @include easeOut;
+          transition: all 0.3s ease-out;
 
       &:hover {
         color: $secondary-color;
