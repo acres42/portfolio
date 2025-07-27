@@ -25,7 +25,7 @@ beforeEach(() => {
   })))
 
   loadMain = async () => {
-    await import('../dist/js/main.js')
+    await import('../../dist/js/main.js')
     await new Promise(resolve => {
       if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', resolve)
