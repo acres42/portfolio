@@ -22,7 +22,7 @@ Object.defineProperty(global, 'localStorage', {
 
 describe('Accessibility', () => {
   it('should have no a11y violations on homepage', async () => {
-    const filePath = resolve(__dirname, '../dist/index.html')
+    const filePath = resolve(__dirname, '../../dist/index.html')
     const html = readFileSync(filePath, 'utf8')
     const { window } = new JSDOM(html, {
       url: "http://localhost",

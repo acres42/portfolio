@@ -1,8 +1,7 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest'
 
-let loadMain: () => Promise<void>
-
 beforeEach(() => {
+  require('../../dist/js/main.js')
   document.body.innerHTML = `<button id="theme-toggle">Toggle</button>`
 
   const store: Record<string, string> = {}
@@ -17,46 +16,28 @@ beforeEach(() => {
     matches: false,
     media: query,
     onchange: null,
-    addListener: vi.fn(), // deprecated
-    removeListener: vi.fn(), // deprecated
+    addListener: vi.fn(),
+    removeListener: vi.fn(),
     addEventListener: vi.fn(),
     removeEventListener: vi.fn(),
     dispatchEvent: vi.fn(),
   })))
-
-  loadMain = async () => {
-    await import('../../dist/js/main.js')
-    await new Promise(resolve => {
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', resolve)
-      } else {
-        resolve()
-      }
-    })
-  }
 })
 
 describe('main.js', () => {
   it('toggles dark mode and saves preference to localStorage', async () => {
-  const button = document.querySelector<HTMLButtonElement>('#theme-toggle')
+    const button = document.querySelector<HTMLButtonElement>('#theme-toggle')
 
-  await loadMain()
+    window.setupThemeToggle() // manually invoke setup since DOMContentLoaded won't fire in tests
+    button?.click()
+    await new Promise(resolve => setTimeout(resolve, 0))
 
-  // Directly invoke setup instead of waiting for DOMContentLoaded
-  window.setupThemeToggle()
+    expect(document.body.classList.contains('dark')).toBe(true)
+    expect(localStorage.getItem('theme')).toBe('dark')
+  })
 
-  button?.click()
-  await new Promise(resolve => setTimeout(resolve, 0))
-
-  expect(document.body.classList.contains('dark')).toBe(true)
-  expect(localStorage.getItem('theme')).toBe('dark')
-})
-
-
-  it('does not throw if #theme-toggle button is missing', async () => {
+  it('does not throw if #theme-toggle button is missing', () => {
     document.body.innerHTML = ''
-    await loadMain()
-
-    await expect(Promise.resolve()).resolves.not.toThrow()
+    expect(() => window.setupThemeToggle()).not.toThrow()
   })
 })

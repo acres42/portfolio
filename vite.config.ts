@@ -12,9 +12,12 @@ export default defineConfig({
   },
   test: {
     environment: 'jsdom',
+    exclude: ['tests/e2e/**', 'node_modules'],
+    include: ['tests/**/*.test.{ts,js}'],
     coverage: {
       reporter: ['text', 'html'],
-        exclude: ['vite.config.ts', 'dist/**'],
+      include: ['dist/js/**/*.js'],
+      exclude: ['vite.config.ts', 'playwright.config.ts', 'test-results'],
     },
   },
 })

@@ -6,7 +6,10 @@
   "scripts": {
     "sass": "sass --watch scss:dist/css",
     "deploy": "gh-pages -d dist/",
-    "test": "vitest"
+    "test": "vitest run",
+    "coverage": "vitest run --coverage",
+    "e2e": "playwright test",
+    "test:all": "npm run test && npm run e2e && npm run coverage"
   },
   "author": "AC Roselee",
   "license": "MIT",
