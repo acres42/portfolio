@@ -1,9 +1,3 @@
-# portfolio
-Static Portfolio Site
-
-npm i to install dependencies
-npm run sass to bring up live changes
-
 # 💼 AC Roselee – Portfolio Site
 
 This is the static portfolio site for AC Roselee, built with vanilla HTML, SCSS, and JavaScript. It showcases work experience, skills, and projects with responsive styling and simple interactions. The site is tested using Vitest and Playwright to ensure accessibility, performance, and UI consistency.
