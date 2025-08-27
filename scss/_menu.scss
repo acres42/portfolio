@@ -87,7 +87,8 @@
     .portrait {
       width: 250px;
       height: 250px;
-      background: url(../img/headshot_sm.jpg);
+      background: url(../img/headshot_sm.jpg) no-repeat center center;
+      background-size: cover;
       border-radius: 50%;
       border: solid 3px set-text-color($primary-color);
       ;

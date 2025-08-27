@@ -69,7 +69,8 @@
 .menu-branding .portrait {
   width: 250px;
   height: 250px;
-  background: url(../img/headshot_sm.jpg);
+  background: url(../img/headshot_sm.jpg) no-repeat center center;
+  background-size: cover;
   border-radius: 50%;
   border: solid 3px #fff;
 }
@@ -149,7 +150,8 @@
     transform: translate3d(100%, 0, 0);
   }
   .menu-branding .portrait {
-    background: url("../img/headshot_sm.jpg");
+    background: url(../img/headshot_sm.jpg) no-repeat center center;
+    background-size: cover;
     width: 150px;
     height: 150px;
   }
@@ -285,10 +287,32 @@ main#home h1 {
 .about-info .job-3 {
   grid-area: job3;
 }
+.about-info .job-4 {
+  grid-area: job4;
+}
+.about-info .job-5 {
+  grid-area: job5;
+}
 .about-info .job {
   background: rgb(116.5, 116.5, 116.5);
   padding: 1.5rem;
   border-bottom: #79A888 0.5rem solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+@media (max-width: 1024px) {
+  .about-info {
+    grid-template-areas: "bioimage bio" "job1 job2" "job3 job4" "job5 job5";
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .about-info {
+    grid-template-areas: "bioimage" "bio" "job1" "job2" "job3" "job4" "job5";
+    grid-template-columns: 1fr;
+  }
 }
 
 .projects {

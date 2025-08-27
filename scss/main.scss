@@ -79,28 +79,27 @@ main {
   }
 }
 
-.about-info{
+.about-info {
   display: grid;
   grid-gap: 30px;
   grid-template-areas:
-  'bioimage bio bio'
-  'job1 job2 job3';
+    'bioimage bio bio'
+    'job1 job2 job3';
   grid-template-columns: repeat(3, 1fr);
 
-
-  .bio-image{
+  .bio-image {
     grid-area: bioimage;
     margin: auto;
     border-radius: 50%;
     border: $secondary-color 3px solid;
   }
 
-  .bio{
+  .bio {
     grid-area: bio;
     font-size: 1.5rem;
   }
 
-  .job-1{
+  .job-1 {
     grid-area: job1;
   }
 
@@ -112,10 +111,43 @@ main {
     grid-area: job3;
   }
 
-  .job{
+  .job-4 {
+    grid-area: job4;
+  }
+
+  .job-5 {
+    grid-area: job5;
+  }
+
+  .job {
     background: color.adjust($primary-color, $lightness: 10%);
     padding: 1.5rem;
-    border-bottom: $secondary-color .5rem solid;
+    border-bottom: $secondary-color 0.5rem solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  @media (max-width: 1024px) {
+    grid-template-areas:
+      'bioimage bio'
+      'job1 job2'
+      'job3 job4'
+      'job5 job5';
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 600px) {
+    grid-template-areas:
+      'bioimage'
+      'bio'
+      'job1'
+      'job2'
+      'job3'
+      'job4'
+      'job5';
+    grid-template-columns: 1fr;
   }
 }
 
