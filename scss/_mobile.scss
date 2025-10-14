@@ -1,5 +1,33 @@
 @use 'config' as *;
 
+/* Sticky full-width footer across all sizes */
+html, body { height: 100%; }
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+/* Page wrapper stretches to full viewport height */
+.background-image {
+  flex: 1 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+/* Main content fills leftover space */
+main, main#contact {
+  flex: 1 0 auto;
+}
+/* Footer spans the full width and pins to bottom */
+footer,
+footer#main-footer {
+  margin-top: auto;
+  width: 100%;
+  display: block;
+  align-self: stretch;
+  box-sizing: border-box;
+}
+
 @include mediaXl {
   .projects{
     grid-template-columns: repeat(4, 1fr);
@@ -85,4 +113,12 @@
   .projects {
     grid-template-columns: 1fr;
   }
+}
+
+@include mediaXs {
+
+  footer #main-footer {
+    width: 100%;
+  }
+
 }

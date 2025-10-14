@@ -279,4 +279,5 @@ main {
   background: color.adjust($primary-color, $lightness: -10%);
   color: if(color.channel($primary-color, "lightness", $space: hsl) > 50%, #000, #fff);
   height: 60px;
+  width: 100%;
 }
