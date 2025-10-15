@@ -177,6 +177,9 @@
   .projects {
     grid-template-columns: 1fr;
   }
+  .boxes div {
+    font-size: 1rem !important;
+  }
 }
 * {
   box-sizing: border-box;
@@ -380,6 +383,7 @@ main#home h1 {
 }
 
 .boxes {
+  align-self: auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
